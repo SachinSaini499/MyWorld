@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWorld.Screens.Scanner">
+
+    <Grid RowSpacing="10" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>          
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btnBarCode" Text="Scan" Clicked="btnBarCode_Clicked"></Button>
+        <Label x:Name="lblScanInfo" Grid.Row="1" Grid.Column="0" ></Label>      
+
+    </Grid>
+
+    
+    
+</ContentPage>

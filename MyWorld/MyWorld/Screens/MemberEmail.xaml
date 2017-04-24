@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWorld.Screens.MemberEmail"
+              xmlns:local="clr-namespace:MyWorld"
+             Title="Email">    
+        <ScrollView>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="2" MinimumWidthRequest="250" >
+            <Label x:Name="lblTo"  Text="To "></Label>
+            <Editor x:Name="editorTo" WidthRequest="320" TextColor="Green"></Editor>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+            <Label Text="CC " x:Name="lblCC"></Label>
+                <Editor x:Name="editorCC" WidthRequest="320" TextColor="Green"></Editor>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Sub " x:Name="lblSub"></Label>
+                <Editor x:Name="editorSub" WidthRequest="320" TextColor="Green"></Editor>
+            </StackLayout>
+            <Label Text="Message" x:Name="lblMsg"></Label>
+            <Editor x:Name="editorBody" HeightRequest="280" TextColor="Green"></Editor>
+            <StackLayout Orientation="Horizontal">
+                <local:VoiceButton  x:Name="voiceButton" HeightRequest="40" Text="RECORD" IsVisible="true" />
+                <Button x:Name="btnSend" WidthRequest="100" HeightRequest="50" Text="Send" BorderRadius="5" BorderWidth="5" Clicked="btnSend_Clicked"></Button>
+                <Image x:Name="btnSpecchRecog"  IsVisible="False" WidthRequest="100" Source="record3.jpg" ></Image>
+               
+            
+            </StackLayout>
+            
+            <!--<Button x:Uid="btnSpecchRecog" WidthRequest="100" Text="Speech" BorderRadius="5" BorderWidth="5" Clicked="btnSpecchRecog_Clicked"></Button>
+            <Button x:Name="btnSpecchStop" WidthRequest="100" Text="Stop" BorderRadius="5" BorderWidth="5" Clicked="btnSpecchStop_Clicked"></Button>-->
+        </StackLayout>
+        </ScrollView>         
+</ContentPage>

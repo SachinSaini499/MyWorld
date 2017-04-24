@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:local="clr-namespace:MyWorld"
+             x:Class="MyWorld.Screens.MasterDetailMenuPage"            
+             
+                  MasterBehavior="Split"
+                  >
+
+
+  <MasterDetailPage.Master>
+    <ContentPage  Padding="10" BackgroundColor="Gray" Title="Menu" Icon="world.jpg" >
+      <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+          <ListView x:Name="listView" VerticalOptions="FillAndExpand" SeparatorVisibility="None" >
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ImageCell Text="{Binding Title}" ImageSource="{Binding ImageSource}"></ImageCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>           
+            
+          </ListView>
+          
+          <!--<Button x:Name="btnHome" Text="Home" BackgroundColor="Gray" Clicked="Home_Clicked" > </Button>
+          <Button x:Name="btnMember" Text="Member" BackgroundColor="Gray" Clicked="Member_Clicked" > </Button>
+          <Button x:Name="btnAllMember" Text="All Member" BackgroundColor="Gray" Clicked="AllMember_Clicked" > </Button>-->
+        </StackLayout>
+        
+      </ContentPage.Content>
+      
+    </ContentPage>
+  </MasterDetailPage.Master>
+  
+  <MasterDetailPage.Detail>
+    <ContentPage  Padding="10" BackgroundColor="Gray">
+      <ContentPage.Content>
+        <StackLayout Margin="5,5,5,5">
+          <Label Text="Detail Page" ></Label>
+        </StackLayout>
+      </ContentPage.Content>
+    </ContentPage>
+  </MasterDetailPage.Detail>
+
+
+</MasterDetailPage>

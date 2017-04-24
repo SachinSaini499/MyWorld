@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWorld.Screens.MemberListPage">
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+
+  <ContentPage.ToolbarItems >
+   
+    <ToolbarItem x:Name="searchbar_icon"  Text="Search" Icon="Search_Android.png" Clicked="OnToolbar_Cliked" Priority="1">      
+    </ToolbarItem >
+    <ToolbarItem x:Name="AddToolbarItem"  Text="Add" Icon="Add_Android.png"  Clicked="OnAdd_Cliked"  Priority="2">      
+    </ToolbarItem >
+      <ToolbarItem x:Name="RefressToolbarItem"  Text="Refress" Icon="refrs.jpg"   Clicked="OnRef_Cliked"  Priority="0">      
+    </ToolbarItem >
+  
+  </ContentPage.ToolbarItems>
+  
+  <StackLayout >
+    <SearchBar x:Name="SearchBar" TextChanged="SearchBar_TextChanged" Placeholder="Enter Name" PlaceholderColor="Silver">
+    </SearchBar>
+    <ListView x:Name="lstViewAllMEmber" HasUnevenRows="True" ItemSelected="OnItem_Selected">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ImageCell ImageSource="{Binding Image}" Text="{Binding FirstName}" Detail="{Binding Address}" >            
+          </ImageCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
