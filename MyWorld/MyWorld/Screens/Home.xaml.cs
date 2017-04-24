@@ -23,6 +23,11 @@ namespace MyWorld.Screens
                 var tapAllMamberImage = new TapGestureRecognizer();
                 tapAllMamberImage.Tapped += tapAllMemberImage_Tapped;
                 ImgAllMember.GestureRecognizers.Add(tapAllMamberImage);
+
+                var tapScannersImage = new TapGestureRecognizer();
+                tapScannersImage.Tapped += tapScannersImage_Tapped;
+                ImgScanners.GestureRecognizers.Add(tapScannersImage);
+
                 CrossVibrate.Current.Vibration(500);
             }
             catch { }     
@@ -39,7 +44,16 @@ namespace MyWorld.Screens
             catch { return base.OnBackButtonPressed(); }
 
         }
-        
+
+        async void tapScannersImage_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                // new NavigationPage(new MemberPage());
+                await Navigation.PushAsync(new Scaners());
+            }
+            catch { }
+        }
         async void tapMemberImage_Tapped(object sender, EventArgs e)
         {try
             {

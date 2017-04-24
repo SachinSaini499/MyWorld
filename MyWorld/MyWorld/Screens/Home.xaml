@@ -19,7 +19,7 @@
     <Image x:Name="ImgMember" Grid.Row="0" Grid.Column="0" Source="Member.png" ></Image>
     <Image x:Name="ImgAllMember" Grid.Row="0" Grid.Column="1" Source="AllMember.jpg" ></Image>
 
-    <Image x:Name="ImgMember1" Grid.Row="1" Grid.Column="0" Source="NotAvail.jpg" ></Image>
+        <Image x:Name="ImgScanners" Grid.Row="1" Grid.Column="0" Source="FS3.jpg" ></Image>
     <Image x:Name="ImgMember2" Grid.Row="1" Grid.Column="1" Source="NotAvail.jpg" ></Image>
 
     <Image x:Name="ImgMember3" Grid.Row="2" Grid.Column="0" Source="NotAvail.jpg" ></Image>

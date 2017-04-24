@@ -22,6 +22,7 @@ namespace MyWorld.Screens
                 lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Home", ImageSource = "world.png", TargetType = typeof(Home) });
                 lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Member", ImageSource = "User.png", TargetType = typeof(MemberPage) });
                 lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "All Member", ImageSource = "Users.png", TargetType = typeof(MemberListPage) });
+                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Scanners", ImageSource = "FSIcon1.jpg", TargetType = typeof(Scaners) });
                 listView.ItemsSource = lstMasterPageItem;
                 listView.ItemSelected += ListView_ItemSelected;
                 NavigationPage.SetHasNavigationBar(this, false);

@@ -17,12 +17,15 @@
   </ContentPage.ToolbarItems>
   
   <StackLayout >
+      
     <SearchBar x:Name="SearchBar" TextChanged="SearchBar_TextChanged" Placeholder="Enter Name" PlaceholderColor="Silver">
     </SearchBar>
+        <ActivityIndicator Color="Green" IsVisible="True" x:Name="activityIndicator"></ActivityIndicator>
     <ListView x:Name="lstViewAllMEmber" HasUnevenRows="True" ItemSelected="OnItem_Selected">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <ImageCell ImageSource="{Binding Image}" Text="{Binding FirstName}" Detail="{Binding Address}" >            
+          <ImageCell ImageSource="{Binding Image}" Text="{Binding FirstName}" Detail="{Binding Address}" >   
+              
           </ImageCell>
         </DataTemplate>
       </ListView.ItemTemplate>
