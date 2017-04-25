@@ -29,6 +29,7 @@ namespace MyWorld.Droid
 
          
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            global::Xamarin.FormsMaps.Init(this, bundle);
             LoadApplication(new App());
         }
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

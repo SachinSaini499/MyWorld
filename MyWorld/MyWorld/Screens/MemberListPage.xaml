@@ -4,14 +4,14 @@
              x:Class="MyWorld.Screens.MemberListPage">
   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
-
-  <ContentPage.ToolbarItems >
+    <ActivityIndicator x:Name="ActInd" Color="Red" IsRunning="True" />
+    <ContentPage.ToolbarItems >
    
     <ToolbarItem x:Name="searchbar_icon"  Text="Search" Icon="Search_Android.png" Clicked="OnToolbar_Cliked" Priority="1">      
     </ToolbarItem >
     <ToolbarItem x:Name="AddToolbarItem"  Text="Add" Icon="Add_Android.png"  Clicked="OnAdd_Cliked"  Priority="2">      
     </ToolbarItem >
-      <ToolbarItem x:Name="RefressToolbarItem"  Text="Refress" Icon="refrs.jpg"   Clicked="OnRef_Cliked"  Priority="0">      
+      <ToolbarItem x:Name="RefressToolbarItem"  Text="Refress" Icon="refrs.jpg"   Clicked="OnRef_Cliked"  Priority="0">    
     </ToolbarItem >
   
   </ContentPage.ToolbarItems>
@@ -19,8 +19,7 @@
   <StackLayout >
       
     <SearchBar x:Name="SearchBar" TextChanged="SearchBar_TextChanged" Placeholder="Enter Name" PlaceholderColor="Silver">
-    </SearchBar>
-        <ActivityIndicator Color="Green" IsVisible="True" x:Name="activityIndicator"></ActivityIndicator>
+    </SearchBar>        
     <ListView x:Name="lstViewAllMEmber" HasUnevenRows="True" ItemSelected="OnItem_Selected">
       <ListView.ItemTemplate>
         <DataTemplate>

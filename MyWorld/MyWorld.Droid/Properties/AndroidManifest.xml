@@ -42,5 +42,14 @@
 	<uses-permission android:name="android.permission.WRITE_SMS" />
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
 	<uses-permission android:name="android.permission.FLASHLIGHT" />
-	<application android:label="MyWorld.Droid"></application>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<application android:label="MyWorld.Droid">
+    <meta-data android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDYQ5L3bP40qBKH8_gqSzOMg6adgVM3waY" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23" />
+  
+<!--<meta-data android:name="com.google.android.gep.API_KEY"
+           android:value="AIzaSyDnBSiIMvBhdexbkMTM6hMsyiEHmz5GORA"></meta-data>-->
+  </application>
 </manifest>
