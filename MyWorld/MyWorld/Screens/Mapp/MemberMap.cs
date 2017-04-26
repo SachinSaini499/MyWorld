@@ -15,6 +15,9 @@ namespace MyWorld.Screens.Mapp
             try
             {
                 this.Title = "Map";
+
+
+
                 this.Children.Add(new DeafultMap());
                 this.Children.Add(new SateliteMap());
 
