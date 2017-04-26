@@ -1,5 +1,6 @@
 ﻿using MyWorld.MemberHelper;
 using MyWorld.Screens;
+using MyWorld.Screens.Mapp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace MyWorld
             {
                 Title = "MyWorld",                           
             };
-            MainPage = new NavigationPage(new GPSPage());
+            MainPage = new NavigationPage(new MemberMap());
 
             //MainPage = new NavigationPage(new MasterDetailMenuPage())
             //{
