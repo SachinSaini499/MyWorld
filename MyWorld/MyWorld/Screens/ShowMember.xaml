@@ -19,8 +19,11 @@
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
+                
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -30,30 +33,33 @@
             
             <Label x:Name="lblFirstName" Grid.Row="0" Grid.Column="0" FontSize="Large"  Text="{Binding FirstName}" HorizontalOptions="Start" VerticalOptions="End" TextColor="Green" Grid.ColumnSpan="2"></Label>
             <!--<Label x:Name="lblLastName" Grid.Row="0" Grid.Column="1" FontSize="Large"  Text="{Binding LastName}" VerticalOptions="End" TextColor="Green"></Label>-->
-            <Image x:Name="lblMemberImage" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Source="{Binding Image}" />
+            <Image x:Name="lblMemberImage" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="4" Source="{Binding Image}" />
 
             <Label x:Name="lblAge" Text="Age: " VerticalOptions="End" HorizontalOptions="Start" TextColor="Green" Grid.Row="1" Grid.Column="0"></Label>
             <Label x:Name="Age" Text="{Binding Age}" VerticalOptions="End" HorizontalOptions="Start" TextColor="Green" Grid.Row="1" Grid.Column="1"></Label>
             
             <Label x:Name="lblStatus" Text="Status: " TextColor="Green" Grid.Row="3" Grid.Column="0"></Label>
-            <Label x:Name="Status" Text="{Binding Status}" TextColor="Green" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"></Label>
+            <Label x:Name="Status" Text="{Binding Status}" TextColor="Green" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3"></Label>
 
             <Label x:Name="lblPhoneNumber" Text="Mobile No: " TextColor="Green" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"></Label>
-            <Label x:Name="PhoneNumber" Text="{Binding PhoneNumber}" HorizontalOptions="Start" TextColor="Green" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2"></Label>
+            <Label x:Name="PhoneNumber" Text="{Binding PhoneNumber}" HorizontalOptions="Start" TextColor="Green" Grid.Row="4" Grid.Column="1" Grid.RowSpan="3"></Label>
             
             <Label x:Name="lblEmail" Text="Email: " TextColor="Green" Grid.Row="5" Grid.Column="0"></Label>
-            <Label x:Name="Email" Text="{Binding Email}" TextColor="Green" Grid.Row="5" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"></Label>
+            <Label x:Name="Email" Text="{Binding Email}" TextColor="Green" Grid.Row="5" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="3"></Label>
             
             <Label x:Name="lblAddress" Text="Address: " TextColor="Green" Grid.Row="6" Grid.Column="0"></Label>
-            <Label x:Name="Address" Text="{Binding Address}" TextColor="Green" Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"></Label>
+            <Label x:Name="Address" Text="{Binding Address}" TextColor="Green" Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="3"></Label>
             
             <Label x:Name="DOB" Text="DOB: " TextColor="Green" Grid.Row="7" Grid.Column="0"></Label>
-            <Label x:Name="lblDOB" Text="{Binding DOB}" TextColor="Green" Grid.Row="7" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"></Label>
+            <Label x:Name="lblDOB" Text="{Binding DOB}" TextColor="Green" Grid.Row="7" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2"></Label>
 
             <Image x:Name="imageSMS" Source="sms.jpg" Grid.Row="8" Grid.Column="0"></Image>
             <Image x:Name="imageCall" Source="call.jpg" Grid.Row="8" Grid.Column="1"></Image>
             <Image x:Name="imageWhatsApp" Source="whatsapp.jpg" Grid.Row="8" Grid.Column="2"></Image>
-            <Image x:Name="imageGmail" Source="gmail.jpg" Grid.Row="8" Grid.Column="3"></Image> 
+            <Image x:Name="imageGmail" Source="gmail.jpg" Grid.Row="8" Grid.Column="3"></Image>
+            <Image x:Name="imageRoute" Source="route3.jpg" Grid.Row="8" Grid.Column="4"></Image>
+
+            <!--<Image x:Name="imageRoute" Source="route1.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="9" Grid.Column="1" Grid.RowSpan="2"></Image>-->
         </Grid>
     </ScrollView>
 </ContentPage>

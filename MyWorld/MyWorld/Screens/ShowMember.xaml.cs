@@ -1,5 +1,6 @@
 ﻿using MyWorld.DTO;
 using MyWorld.MemberHelper;
+using MyWorld.Screens.Mapp;
 using Plugin.TextToSpeech;
 using Plugin.Vibrate;
 using System;
@@ -33,7 +34,24 @@ namespace MyWorld.Screens
             var taEmailImage = new TapGestureRecognizer();
             taEmailImage.Tapped += tapMemberEmailImage_Tapped;
             imageGmail.GestureRecognizers.Add(taEmailImage);
-                CrossVibrate.Current.Vibration(500);
+
+
+                var tapRouteImage = new TapGestureRecognizer();
+                tapRouteImage.Tapped += tapRouteImage_Tapped;
+                imageRoute.GestureRecognizers.Add(tapRouteImage);
+                
+                CrossVibrate.Current.Vibration(200);
+
+            }
+            catch { }
+        }
+
+        void tapRouteImage_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                member = BindingContext as Member;
+                Navigation.PushAsync(new MemberMapRoute(member.Address));
             }
             catch { }
         }
@@ -69,6 +87,16 @@ namespace MyWorld.Screens
 
             }
             catch { }
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            try
+            {
+                //   DisplayAlert("Notification", "You want to exit ?", "No", "Yes");
+                return base.OnBackButtonPressed();
+            }
+            catch { return base.OnBackButtonPressed(); }
+
         }
     }
 }

@@ -2310,26 +2310,8 @@ namespace MyWorld.Droid
 			// aapt resource value: 0x7f020055
 			public const int avd_hide_password = 2130837589;
 			
-			// aapt resource value: 0x7f02013c
-			public const int avd_hide_password_1 = 2130837820;
-			
-			// aapt resource value: 0x7f02013d
-			public const int avd_hide_password_2 = 2130837821;
-			
-			// aapt resource value: 0x7f02013e
-			public const int avd_hide_password_3 = 2130837822;
-			
 			// aapt resource value: 0x7f020056
 			public const int avd_show_password = 2130837590;
-			
-			// aapt resource value: 0x7f02013f
-			public const int avd_show_password_1 = 2130837823;
-			
-			// aapt resource value: 0x7f020140
-			public const int avd_show_password_2 = 2130837824;
-			
-			// aapt resource value: 0x7f020141
-			public const int avd_show_password_3 = 2130837825;
 			
 			// aapt resource value: 0x7f020057
 			public const int BrowsImage = 2130837591;
@@ -2970,11 +2952,11 @@ namespace MyWorld.Droid
 			// aapt resource value: 0x7f02012b
 			public const int notification_icon_background = 2130837803;
 			
-			// aapt resource value: 0x7f02013a
-			public const int notification_template_icon_bg = 2130837818;
+			// aapt resource value: 0x7f02013d
+			public const int notification_template_icon_bg = 2130837821;
 			
-			// aapt resource value: 0x7f02013b
-			public const int notification_template_icon_low_bg = 2130837819;
+			// aapt resource value: 0x7f02013e
+			public const int notification_template_icon_low_bg = 2130837822;
 			
 			// aapt resource value: 0x7f02012c
 			public const int notification_tile_bg = 2130837804;
@@ -2998,25 +2980,34 @@ namespace MyWorld.Droid
 			public const int refrs = 2130837810;
 			
 			// aapt resource value: 0x7f020133
-			public const int Search_Android = 2130837811;
+			public const int route1 = 2130837811;
 			
 			// aapt resource value: 0x7f020134
-			public const int sms = 2130837812;
+			public const int route3 = 2130837812;
 			
 			// aapt resource value: 0x7f020135
-			public const int User = 2130837813;
+			public const int route4 = 2130837813;
 			
 			// aapt resource value: 0x7f020136
-			public const int Users = 2130837814;
+			public const int Search_Android = 2130837814;
 			
 			// aapt resource value: 0x7f020137
-			public const int whatsapp = 2130837815;
+			public const int sms = 2130837815;
 			
 			// aapt resource value: 0x7f020138
-			public const int world = 2130837816;
+			public const int User = 2130837816;
 			
 			// aapt resource value: 0x7f020139
-			public const int Wrong = 2130837817;
+			public const int Users = 2130837817;
+			
+			// aapt resource value: 0x7f02013a
+			public const int whatsapp = 2130837818;
+			
+			// aapt resource value: 0x7f02013b
+			public const int world = 2130837819;
+			
+			// aapt resource value: 0x7f02013c
+			public const int Wrong = 2130837820;
 			
 			static Drawable()
 			{

@@ -19,7 +19,7 @@ namespace MyWorld.Screens.Mapp
                 this.Children.Add(new SateliteMap());
 
             }
-            catch { }
+            catch(Exception ex) { }
         }
     }
 }

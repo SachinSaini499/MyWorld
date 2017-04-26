@@ -45,6 +45,7 @@ namespace MyWorld.Droid
         {
             ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
     }
 }
 
