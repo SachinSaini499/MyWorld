@@ -2,7 +2,7 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                    xmlns:local="clr-namespace:MyWorld"
-             x:Class="MyWorld.Screens.MasterDetailMenuPage"            
+             x:Class="MyWorld.Screens.MasterDetailMenuPage"        
              
                   MasterBehavior="Split"
                   >
@@ -15,7 +15,7 @@
           <ListView x:Name="listView" VerticalOptions="FillAndExpand" SeparatorVisibility="None" >
             <ListView.ItemTemplate>
               <DataTemplate>
-                <ImageCell Text="{Binding Title}" ImageSource="{Binding ImageSource}"></ImageCell>
+                <ImageCell Text="{Binding Title}" TextColor="Black" ImageSource="{Binding ImageSource}"></ImageCell>
               </DataTemplate>
             </ListView.ItemTemplate>           
             

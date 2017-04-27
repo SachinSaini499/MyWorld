@@ -21,14 +21,14 @@ namespace MyWorld
             {
                 Title = "MyWorld",                           
             };
-            MainPage = new NavigationPage(new MemberMap());
+            // MainPage = new NavigationPage(new MemberMap());
 
-            //MainPage = new NavigationPage(new MasterDetailMenuPage())
-            //{
-            //    BarBackgroundColor = Color.Green,//Color.FromHex("#ff5300"),
-            //    BarTextColor = Color.White,
+            MainPage = new NavigationPage(new MasterDetailMenuPage())
+            {
+                BarBackgroundColor = Color.Green,//Color.FromHex("#ff5300"),
+                BarTextColor = Color.White,
 
-            //};
+            };
         }
         public static MemberDatabase Database
         {

@@ -21,7 +21,7 @@ namespace MyWorld.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            
             base.OnCreate(bundle);
 
             // Initilise media

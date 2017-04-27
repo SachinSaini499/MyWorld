@@ -1,4 +1,5 @@
 ﻿using MyWorld.DTO;
+using MyWorld.Screens.Mapp;
 using Plugin.Vibrate;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace MyWorld.Screens
                 lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Member", ImageSource = "User.png", TargetType = typeof(MemberPage) });
                 lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "All Member", ImageSource = "Users.png", TargetType = typeof(MemberListPage) });
                 lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Scanners", ImageSource = "FSIcon1.jpg", TargetType = typeof(Scaners) });
+                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Map", ImageSource = "route7.jpg", TargetType = typeof(MemberMap) });
+
                 listView.ItemsSource = lstMasterPageItem;
                 listView.ItemSelected += ListView_ItemSelected;
                 NavigationPage.SetHasNavigationBar(this, false);

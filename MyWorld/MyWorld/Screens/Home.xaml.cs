@@ -1,4 +1,5 @@
-﻿using Plugin.Vibrate;
+﻿using MyWorld.Screens.Mapp;
+using Plugin.Vibrate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,12 @@ namespace MyWorld.Screens
                 tapScannersImage.Tapped += tapScannersImage_Tapped;
                 ImgScanners.GestureRecognizers.Add(tapScannersImage);
 
+                var tapMapImage = new TapGestureRecognizer();
+                tapMapImage.Tapped += tapMapImage_Tapped;
+                ImgMap.GestureRecognizers.Add(tapMapImage);
+
+                
+
                 CrossVibrate.Current.Vibration(500);
             }
             catch { }     
@@ -44,8 +51,17 @@ namespace MyWorld.Screens
             catch { return base.OnBackButtonPressed(); }
 
         }
+        async void tapMapImage_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                await Navigation.PushAsync(new MemberMap());
 
-        async void tapScannersImage_Tapped(object sender, EventArgs e)
+            }
+            catch { }
+        }
+
+                async void tapScannersImage_Tapped(object sender, EventArgs e)
         {
             try
             {
