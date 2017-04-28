@@ -15,6 +15,7 @@ using Xamarin.Forms;
 
 namespace MyWorld.Screens
 {
+   
     public partial class MemberPage : ContentPage
     {
         const string emailRegex = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +

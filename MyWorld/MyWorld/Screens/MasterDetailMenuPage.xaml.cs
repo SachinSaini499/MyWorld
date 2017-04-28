@@ -20,11 +20,11 @@ namespace MyWorld.Screens
                 Detail = new NavigationPage(new Home());
                 IsPresented = false;
                 var lstMasterPageItem = new List<MasterPageItem>();
-                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Home", ImageSource = "world.png", TargetType = typeof(Home) });
-                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Member", ImageSource = "User.png", TargetType = typeof(MemberPage) });
-                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "All Member", ImageSource = "Users.png", TargetType = typeof(MemberListPage) });
-                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Scanners", ImageSource = "FSIcon1.jpg", TargetType = typeof(Scaners) });
-                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Map", ImageSource = "route7.jpg", TargetType = typeof(MemberMap) });
+                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Home", ImageSource = "myworld33.jpg", TargetType = typeof(Home) });
+                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Member", ImageSource = "addmemberr.jpg", TargetType = typeof(MemberPage) });
+                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "All Member", ImageSource = "allmemberr2.jpg", TargetType = typeof(MemberListPage) });
+                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Scanners", ImageSource = "FSIcon3.jpg", TargetType = typeof(Scaners) });
+                lstMasterPageItem.Add(new DTO.MasterPageItem { Title = "Map", ImageSource = "route2.png", TargetType = typeof(MemberMap) });
 
                 listView.ItemsSource = lstMasterPageItem;
                 listView.ItemSelected += ListView_ItemSelected;

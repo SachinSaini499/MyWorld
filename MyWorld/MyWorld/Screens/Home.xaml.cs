@@ -1,4 +1,5 @@
 ﻿using MyWorld.Screens.Mapp;
+using MyWorld.Screens.MultiMedia;
 using Plugin.Vibrate;
 using System;
 using System.Collections.Generic;
@@ -33,12 +34,24 @@ namespace MyWorld.Screens
                 tapMapImage.Tapped += tapMapImage_Tapped;
                 ImgMap.GestureRecognizers.Add(tapMapImage);
 
-                
+                var tapMediaImage = new TapGestureRecognizer();
+                tapMediaImage.Tapped += tapMediaImage_Tapped;
+                ImgMedia.GestureRecognizers.Add(tapMediaImage);
+
 
                 CrossVibrate.Current.Vibration(500);
             }
             catch { }     
 
+        }
+        async void tapMediaImage_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                await Navigation.PushAsync(new MediaMulti());
+
+            }
+            catch { }
         }
         protected override bool OnBackButtonPressed()
         {

@@ -27,6 +27,7 @@ namespace MyWorld
             {
                 BarBackgroundColor = Color.Green,//Color.FromHex("#ff5300"),
                 BarTextColor = Color.White,
+                
 
             };
         }

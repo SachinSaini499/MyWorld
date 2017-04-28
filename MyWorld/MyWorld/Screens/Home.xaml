@@ -16,13 +16,13 @@
       <ColumnDefinition Width="*"></ColumnDefinition>
       <ColumnDefinition Width="*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
-    <Image x:Name="ImgMember" Grid.Row="0" Grid.Column="0" Source="Member.png" ></Image>
-    <Image x:Name="ImgAllMember" Grid.Row="0" Grid.Column="1" Source="AllMember.jpg" ></Image>
+        <Image x:Name="ImgMember" Grid.Row="0" Grid.Column="0" Source="addmember5.jpg" ></Image>
+        <Image x:Name="ImgAllMember" Grid.Row="0" Grid.Column="1" Source="allmmber.jpg" ></Image>
 
-        <Image x:Name="ImgScanners" Grid.Row="1" Grid.Column="0" Source="FS3.jpg" ></Image>
+        <Image x:Name="ImgScanners" Grid.Row="1" Grid.Column="0" Source="scanner.jpg" ></Image>
         <Image x:Name="ImgMap" Grid.Row="1" Grid.Column="1" Source="map5.png" ></Image>
 
-    <Image x:Name="ImgMember3" Grid.Row="2" Grid.Column="0" Source="NotAvail.jpg" ></Image>
+        <Image x:Name="ImgMedia" Grid.Row="2" Grid.Column="0" Source="media.jpg" ></Image>
     <Image x:Name="ImgMember4" Grid.Row="2" Grid.Column="1" Source="NotAvail.jpg" ></Image>
 
   </Grid>

@@ -22,6 +22,7 @@
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
+            
                 
 
             </Grid.RowDefinitions>
@@ -30,11 +31,12 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
 
 
-            <Entry Text="{Binding FirstName}" HeightRequest="20"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="entryFirstName" Placeholder="First Name*" TextColor="Green"  />
+            <Entry Text="{Binding FirstName}" HeightRequest="20"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryFirstName" Placeholder="First Name*" TextColor="Green"  />
             <Switch x:Name="switch1" IsVisible="False">
                 <Switch.Triggers>
                     <DataTrigger TargetType="Switch" Binding="{Binding Source={x:Reference entryFirstName}, Path=Text.Length}" Value="0">
@@ -42,9 +44,9 @@
                     </DataTrigger>
                 </Switch.Triggers>
             </Switch>
-            <Image x:Name="FNameValImage"   HeightRequest="25" Grid.Row="0" Grid.Column="3" Grid.RowSpan="1" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
-            <Entry Text="{Binding LastName}" HeightRequest="20" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="entryLastName" Placeholder="Last Name" TextColor="Green" />
-            <Entry Text="{Binding Age}" HeightRequest="20" Grid.Row="2" Grid.Column="0" x:Name="entryAge" Placeholder="Age" Keyboard="Keyboard.Numeric" TextColor="Green" >
+            <Image x:Name="FNameValImage"   HeightRequest="25" Grid.Row="0" Grid.Column="3" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
+            <Entry Text="{Binding LastName}" HeightRequest="20" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryLastName" Placeholder="Last Name" TextColor="Green" />
+            <Entry Text="{Binding Age}" HeightRequest="20" Grid.Row="2" Grid.Column="0" x:Name="entryAge" Grid.ColumnSpan="5" Placeholder="Age" Keyboard="Keyboard.Numeric" TextColor="Green" >
                 <Entry.Behaviors>
                     <local:MaxLengthValidatorBehavior  MaxLength="3"/>
                 </Entry.Behaviors>
@@ -58,13 +60,13 @@
                 </Picker.Items>
             </Picker>
 
-            <Entry Text="{Binding pickerBehavior}" IsVisible="false" HeightRequest="20" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" x:Name="entryStatus" Placeholder="Status" TextColor="Green" />
+            <Entry Text="{Binding pickerBehavior}" IsVisible="false" HeightRequest="20" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" x:Name="entryStatus" Placeholder="Status" TextColor="Green" />
 
 
             <Label x:Name="lblDate" FontSize="Medium"  VerticalOptions="Center" HorizontalOptions="Center"  HeightRequest="20" Text="DOB" Grid.Row="4" Grid.Column="0"></Label>
-            <DatePicker x:Name="DatePicker"  DateSelected="DatePicker_DateSelected"  HeightRequest="20" TextColor="Green" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start"  ></DatePicker>
+            <DatePicker x:Name="DatePicker"  DateSelected="DatePicker_DateSelected"  HeightRequest="20" TextColor="Green" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" HorizontalOptions="Start"  ></DatePicker>
             <Entry Text="{Binding DOB}"  x:Name="entryDate" IsVisible="false" TextColor="Green" />
-            <Entry x:Name="entryEmail" Text="{Binding Email}" HeightRequest="20" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Placeholder="Email*" TextColor="Green">
+            <Entry x:Name="entryEmail" Text="{Binding Email}" HeightRequest="20" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5"  Placeholder="Email*" TextColor="Green">
                 <Entry.Behaviors>
                     <local:EmailValidatorBehavior x:Name="validEmail" />
                 </Entry.Behaviors>
@@ -77,9 +79,9 @@
                 </Switch.Triggers>
             </Switch>
          
-            <Image x:Name="EmailValImage"   HeightRequest="25" Grid.Row="5" Grid.Column="3" Grid.RowSpan="1" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
-            <Entry Text="{Binding Address}" HeightRequest="20" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" x:Name="entryAddress" Placeholder="Address" TextColor="Green" />
-            <Entry Text="{Binding PhoneNumber}" HeightRequest="20" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" x:Name="entryPhoneNumber" Placeholder="Phone Number*" Keyboard="Keyboard.Numeric" TextColor="Green" >
+            <Image x:Name="EmailValImage"   HeightRequest="25" Grid.Row="5" Grid.Column="3" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
+            <Entry Text="{Binding Address}" HeightRequest="20" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryAddress" Placeholder="Address" TextColor="Green" />
+            <Entry Text="{Binding PhoneNumber}" HeightRequest="20" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryPhoneNumber" Placeholder="Phone Number*" Keyboard="Keyboard.Numeric" TextColor="Green" >
                 <Entry.Behaviors>
                     <local:MaxLengthValidatorBehavior MaxLength="10"/>
                     <local:MinLengthValidatorBehavior MinLength="10" />
@@ -92,14 +94,14 @@
                     </DataTrigger>
                 </Switch.Triggers>
             </Switch>
-            <Image x:Name="PhoneNumberValImage"   HeightRequest="25" Grid.Row="7" Grid.Column="3" Grid.RowSpan="1" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
+            <Image x:Name="PhoneNumberValImage"   HeightRequest="25" Grid.Row="7" Grid.Column="3"  HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
             <Entry Text="{Binding Image}" Grid.Row="8" Grid.Column="0" x:Name="entryImage" Grid.ColumnSpan="2" IsVisible="false" TextColor="Green" />
 
             <Image x:Name="MainImage" Grid.Row="9" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
             <!--<Button x:Name="btnPicMembr" Text="Take" HorizontalOptions="StartAndExpand" BorderRadius="2" BorderColor="Black"   HeightRequest="40" Grid.Row="9" Grid.Column="3" TextColor="Black" Clicked="PhotoButtonClicked"></Button>-->
-            <Image x:Name="btnImagePicMembr" HeightRequest="40" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Fill" Grid.Row="9" Grid.Column="2"  Grid.ColumnSpan="2" Source="camera.png" ></Image>
+            <Image x:Name="btnImagePicMembr" HeightRequest="40"   Grid.Row="9" Grid.Column="3"  Grid.ColumnSpan="2" Source="camera.png" ></Image>
             <!--<Button x:Name="btnPicBrows"  Image="camera.png"   HeightRequest="40" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2" BackgroundColor="Red" TextColor="White"    Text="Browse" Clicked="BrowseButtonClicked"></Button>-->
-            <Image x:Name="btnPicBrows" HeightRequest="40" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Fill" Grid.Row="10" Grid.Column="2"  Grid.ColumnSpan="2" Source="BrowsImage.jpg" ></Image>
+            <Image x:Name="btnPicBrows" HeightRequest="40"  Grid.Row="10" Grid.Column="3"  Grid.ColumnSpan="2" Source="BrowsImage.jpg" ></Image>
             <!--<Grid RowSpacing="6" ColumnSpacing="6" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4">
         <Grid.RowDefinitions>
           <RowDefinition Height="*"></RowDefinition>
@@ -115,9 +117,9 @@
       </Grid>-->
             <Entry x:Name="entryOTP" Placeholder="Enter OTP"  Keyboard="Keyboard.Numeric"  TextColor="Green" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="False"></Entry>       
 
-            <Button x:Name="btnAddMembr" IsEnabled="{Binding myBool}" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="2" TextColor="Black" 
-              HorizontalOptions="Start" VerticalOptions="End" Text="Get OTP" Clicked="AddButtonClicked" >
-                <Button.Triggers>
+            <Button x:Name="btnAddMembr" HorizontalOptions="Start" VerticalOptions="End" IsEnabled="{Binding myBool}" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="2" TextColor="Black" 
+              Text="Get OTP" Clicked="AddButtonClicked" >
+                <!--<Button.Triggers>
                     <MultiTrigger TargetType="Button">
                         <MultiTrigger.Conditions>
                             <BindingCondition Binding="{Binding Source={x:Reference switch1}, Path=IsToggled}" Value="False" />
@@ -126,7 +128,7 @@
                         </MultiTrigger.Conditions>
                         <Setter Property="IsEnabled" Value="true" />
                     </MultiTrigger>
-                </Button.Triggers>
+                </Button.Triggers>-->
             </Button>
         </Grid>
         <!--</StackLayout>-->

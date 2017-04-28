@@ -9,7 +9,7 @@
 
 
   <MasterDetailPage.Master>
-    <ContentPage  Padding="10" BackgroundColor="Gray" Title="Menu" Icon="world.jpg" >
+        <ContentPage  Padding="10" BackgroundColor="#8F8F85" Title="Menu" Icon="myworld33.jpg" >
       <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
           <ListView x:Name="listView" VerticalOptions="FillAndExpand" SeparatorVisibility="None" >

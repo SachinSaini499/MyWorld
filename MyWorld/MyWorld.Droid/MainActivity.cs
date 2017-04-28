@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace MyWorld.Droid
 {
-    [Activity(Label = "MyWorld", Icon = "@drawable/myword", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "myWORLD", Icon = "@drawable/myworld2", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public event EventHandler<ActivityResultEventArgs> ActivityResult = delegate { };
