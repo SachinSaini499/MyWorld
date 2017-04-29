@@ -13,7 +13,7 @@ namespace MyWorld.Screens.Mapp
     {
         string address = null;
         MapHelper mapHelper;
-        public MemberMapRoute(string _address="Muzaffarnagar")
+        public MemberMapRoute(string _address="Noida")
         {
             address = _address;
             mapHelper = new MemberHelper.MapHelper();

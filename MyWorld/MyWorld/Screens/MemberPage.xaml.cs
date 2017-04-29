@@ -15,7 +15,7 @@ using Xamarin.Forms;
 
 namespace MyWorld.Screens
 {
-   
+
     public partial class MemberPage : ContentPage
     {
         const string emailRegex = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
@@ -24,25 +24,27 @@ namespace MyWorld.Screens
         Member member;
         MemberComm memberOTP;
         public MemberPage()
-        {try { 
-            InitializeComponent();
-            this.Title = "Add Member";
-            BindingContext = new Member();
-            MainImage.Source = "DumyImage.jpg";
-            memberOTP = new MemberHelper.MemberComm();
+        {
+            try
+            {
+                InitializeComponent();
+                this.Title = "Add Member";
+                BindingContext = new Member();
+                MainImage.Source = "DumyImage.jpg";
+                memberOTP = new MemberHelper.MemberComm();
 
-            
-             var tapMamberImage = new TapGestureRecognizer();
-            tapMamberImage.Tapped += tapMemberImage_Tapped;
-            btnImagePicMembr.GestureRecognizers.Add(tapMamberImage);
 
-            var tapbtnPicBrows = new TapGestureRecognizer();
-            tapbtnPicBrows.Tapped += tapbtnPicBrows_Tapped;
-            btnPicBrows.GestureRecognizers.Add(tapbtnPicBrows);
+                var tapMamberImage = new TapGestureRecognizer();
+                tapMamberImage.Tapped += tapMemberImage_Tapped;
+                btnImagePicMembr.GestureRecognizers.Add(tapMamberImage);
+
+                var tapbtnPicBrows = new TapGestureRecognizer();
+                tapbtnPicBrows.Tapped += tapbtnPicBrows_Tapped;
+                btnPicBrows.GestureRecognizers.Add(tapbtnPicBrows);
                 CrossVibrate.Current.Vibration(500);
                 // btnAddMembr.IsEnabled = false;
             }
-            catch { }
+            catch(Exception ex) { }
         }
         //private void DatePicker_OnDateSelected(object sender, DateChangedEventArgs e)
         //{
@@ -60,29 +62,31 @@ namespace MyWorld.Screens
         // }
 
         async void tapbtnPicBrows_Tapped(object sender, EventArgs e)
-        {try { 
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsPickPhotoSupported)
+        {
+            try
             {
-                await DisplayAlert("OOps", ":( pic photo not supported.", "OK");
-                return;
-            }
-            string pathpic = App.getPicturePath;
-            var file = await CrossMedia.Current.PickPhotoAsync();
+                await CrossMedia.Current.Initialize();
 
-            if (file == null)
-                return;
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("OOps", ":( pic photo not supported.", "OK");
+                    return;
+                }
+                string pathpic = App.getPicturePath;
+                var file = await CrossMedia.Current.PickPhotoAsync();
 
-            // await DisplayAlert("File Location", file.Path, "OK");
+                if (file == null)
+                    return;
 
-            entryImage.Text = file.Path;
-            MainImage.Source = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+                // await DisplayAlert("File Location", file.Path, "OK");
+
+                entryImage.Text = file.Path;
+                MainImage.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
 
                 //or:
                 //image.Source = ImageSource.FromFile(file.Path);
@@ -92,35 +96,37 @@ namespace MyWorld.Screens
 
         }
         async void tapMemberImage_Tapped(object sender, EventArgs e)
-        {try { 
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+        {
+            try
             {
-                await DisplayAlert("No Camera", ":( No camera available.", "OK");
-                return;
-            }
-            string pathpic = App.getPicturePath;
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                Directory = "@" + pathpic,
-                Name = "pic.jpg",
-                AllowCropping = true
+                await CrossMedia.Current.Initialize();
 
-            });
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    await DisplayAlert("No Camera", ":( No camera available.", "OK");
+                    return;
+                }
+                string pathpic = App.getPicturePath;
+                var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                {
+                    Directory = "@" + pathpic,
+                    Name = "pic.jpg",
+                    AllowCropping = true
 
-            if (file == null)
-                return;
+                });
 
-            // await DisplayAlert("File Location", file.Path, "OK");
+                if (file == null)
+                    return;
 
-            entryImage.Text = file.Path;
-            MainImage.Source = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+                // await DisplayAlert("File Location", file.Path, "OK");
+
+                entryImage.Text = file.Path;
+                MainImage.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
 
                 //or:
                 //image.Source = ImageSource.FromFile(file.Path);
@@ -130,145 +136,173 @@ namespace MyWorld.Screens
         }
         async void AddButtonClicked(object sender, EventArgs e)
         {
-            try { 
-            string email, firstName, phoneNumber;
-            email = entryEmail.Text; firstName = entryFirstName.Text; phoneNumber = entryPhoneNumber.Text;
-            bool IsEmailValid = false; bool IsNameValid = false; bool IsPhoneNumberValid = false; bool IsOTPValid = false;
-            member = new DTO.Member();
-            member = (Member)BindingContext;
-
-            if (btnAddMembr.Text.ToLower().Contains("otp"))
+            try
             {
-                if (!string.IsNullOrEmpty(phoneNumber))
+                wrongeData="";
+                string email, firstName, phoneNumber, address, dob;
+                email = entryEmail.Text; firstName = entryFirstName.Text; phoneNumber = entryPhoneNumber.Text; address = entryAddress.Text; dob = entryDate.Text;
+                bool IsEmailValid = false; bool IsNameValid = false; bool IsPhoneNumberValid = false; bool IsOTPValid = false; bool IsAddressValid = false; bool IsDOBValid = false;
+                member = new DTO.Member();
+                member = (Member)BindingContext;
+
+                if (btnAddMembr.Text.ToLower().Contains("otp"))
                 {
-                    if (phoneNumber.Length == 10)
+                    if (!string.IsNullOrEmpty(phoneNumber))
                     {
-                        IsPhoneNumberValid = true;
+                        if (phoneNumber.Length == 10)
+                        {
+                            IsPhoneNumberValid = true;
+                        }
                     }
-                }
-                if (!IsPhoneNumberValid)
-                {
-                    PhoneNumberValImage.IsVisible = true;
-                    PhoneNumberValImage.Focus();
-                    wrongeData = "Phone Number";
-                    CrossTextToSpeech.Current.Speak(PrismData.speechMessage + wrongeData);
+                    if (!IsPhoneNumberValid)
+                    {
+                        PhoneNumberValImage.IsVisible = true;
+                        PhoneNumberValImage.Focus();
+                        wrongeData = "Phone Number";
+                        CrossTextToSpeech.Current.Speak(PrismData.speechMessage + wrongeData);
+                    }
+                    else
+                    {
+                        if (memberOTP.sendSMS(phoneNumber))
+                        {
+                            entryOTP.IsVisible = true;
+                            btnAddMembr.Text = " Add ";
+                            entryPhoneNumber.IsEnabled = false;
+                            PhoneNumberValImage.IsVisible = false;
+                        }
+                    }
                 }
                 else
                 {
-                    if (memberOTP.sendSMS(phoneNumber))
+                    if (!string.IsNullOrEmpty(email))
                     {
-                        entryOTP.IsVisible = true;
-                        btnAddMembr.Text = " Add ";
-                        entryPhoneNumber.IsEnabled = false;
-                        PhoneNumberValImage.IsVisible = false;
+                        IsEmailValid = (Regex.IsMatch(email, emailRegex, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)));
                     }
-                }
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(email))
-                {
-                    IsEmailValid = (Regex.IsMatch(email, emailRegex, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)));
-                }
-                if (!string.IsNullOrEmpty(firstName))
-                {
-                    firstName = firstName.ToUpper();
-                    IsNameValid = true;
-                }
-                if (!string.IsNullOrEmpty(entryOTP.Text))
-                {
-                    if (memberOTP.verifyOTP(entryOTP.Text))
+                    if (!string.IsNullOrEmpty(firstName))
                     {
-                        IsOTPValid = true;
+                        firstName = firstName.ToUpper();
+                        IsNameValid = true;
                     }
-                }
-                if (IsEmailValid && IsNameValid && IsOTPValid)
-                {
+                    if (!string.IsNullOrEmpty(address))
+                    {
 
-                    if (string.IsNullOrEmpty(member.Address))
-                    {
-                        member.Address = PrismData.notAvail;
+                        IsAddressValid = true;
                     }
-                    if (string.IsNullOrEmpty(member.Age))
+                    if (!string.IsNullOrEmpty(dob))
                     {
-                        member.Age = PrismData.notAvail;
+
+                        IsDOBValid = true;
                     }
-                    if (string.IsNullOrEmpty(member.DOB))
+                    if (!string.IsNullOrEmpty(entryOTP.Text))
                     {
-                        member.DOB = PrismData.notAvail;
+                        if (memberOTP.verifyOTP(entryOTP.Text))
+                        {
+                            IsOTPValid = true;
+                        }
                     }
-                    if (string.IsNullOrEmpty(member.Image))
+                    if (IsEmailValid && IsNameValid && IsOTPValid && IsAddressValid && IsDOBValid)
                     {
-                        member.Image = "DumyImage.jpg";
+
+                        //if (string.IsNullOrEmpty(member.Address))
+                        //{
+                        //    member.Address = PrismData.notAvail;
+                        //}
+                        if (string.IsNullOrEmpty(member.Age))
+                        {
+                            member.Age = PrismData.notAvail;
+                        }
+                        //if (string.IsNullOrEmpty(member.DOB))
+                        //{
+                        //    member.DOB = PrismData.notAvail;
+                        //}
+                        if (string.IsNullOrEmpty(member.Image))
+                        {
+                            member.Image = "DumyImage.jpg";
+                        }
+                        if (string.IsNullOrEmpty(member.LastName))
+                        {
+                            member.LastName = PrismData.notAvail;
+                        }
+                        if (pickerBehavior.SelectedIndex == -1)
+                        {
+                            member.Status = PrismData.notAvail;
+                        }
+                        else { member.Status = pickerBehavior.Items[pickerBehavior.SelectedIndex]; }
+                        await App.Database.SaveMember(member);
+                        await Navigation.PopAsync();
                     }
-                    if (string.IsNullOrEmpty(member.LastName))
+                    else
                     {
-                        member.LastName = PrismData.notAvail;
+                        if (!IsEmailValid)
+                        {
+                            EmailValImage.IsVisible = true;
+                            wrongeData = "Email";
+                            //  EmailValImage.Focus();
+                        }
+                        if (!IsDOBValid)
+                        {
+                            DOBValImage.IsVisible = true;
+                            wrongeData += "Date of birth";
+                            //  EmailValImage.Focus();
+                        }
+                        if (!IsAddressValid)
+                        {
+                            AddressValImage.IsVisible = true;
+                            wrongeData += "Address";
+                            //  EmailValImage.Focus();
+                        }
+                      
+                        if (!IsOTPValid)
+                        {
+                            FNameValImage.IsVisible = true;
+                            wrongeData = wrongeData + "and O T P";
+                        }
+
+                        if (!IsNameValid)
+                        {
+                            FNameValImage.IsVisible = true;
+                            FNameValImage.Focus();
+                            wrongeData = wrongeData + "and first name";
+                        }
+                        CrossTextToSpeech.Current.Speak(PrismData.speechMessage + wrongeData);
                     }
-                    if (pickerBehavior.SelectedIndex == -1)
-                    {
-                        member.Status = PrismData.notAvail;
-                    }
-                    else { member.Status = pickerBehavior.Items[pickerBehavior.SelectedIndex]; }
-                    await App.Database.SaveMember(member);
-                    await Navigation.PopAsync();
                 }
-                else
-                {
-                    if (!IsEmailValid)
-                    {
-                        EmailValImage.IsVisible = true;
-                        wrongeData = "Email";
-                        //  EmailValImage.Focus();
-                    }
-                    if (!IsNameValid)
-                    {
-                        FNameValImage.IsVisible = true;
-                        FNameValImage.Focus();
-                        wrongeData = wrongeData + "first name";
-                    }
-                    if (!IsOTPValid)
-                    {
-                        FNameValImage.IsVisible = true;                      
-                        wrongeData = wrongeData + "and O T P";
-                    }
-                    CrossTextToSpeech.Current.Speak(PrismData.speechMessage + wrongeData);
-                }
-            }
             }
             catch { }
 
         }
         async void PhotoButtonClicked(object sender, EventArgs e)
-        {try { 
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+        {
+            try
             {
-                await DisplayAlert("No Camera", ":( No camera available.", "OK");
-                return;
-            }
-            string pathpic = App.getPicturePath;
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                Directory = "@" + pathpic,
-                Name = "pic.jpg",
-                AllowCropping = true
+                await CrossMedia.Current.Initialize();
 
-            });
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    await DisplayAlert("No Camera", ":( No camera available.", "OK");
+                    return;
+                }
+                string pathpic = App.getPicturePath;
+                var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                {
+                    Directory = "@" + pathpic,
+                    Name = "pic.jpg",
+                    AllowCropping = true
 
-            if (file == null)
-                return;
+                });
 
-            // await DisplayAlert("File Location", file.Path, "OK");
+                if (file == null)
+                    return;
 
-            entryImage.Text = file.Path;
-            MainImage.Source = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+                // await DisplayAlert("File Location", file.Path, "OK");
+
+                entryImage.Text = file.Path;
+                MainImage.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
 
                 //or:
                 //image.Source = ImageSource.FromFile(file.Path);
@@ -277,29 +311,31 @@ namespace MyWorld.Screens
             catch { }
         }
         async void BrowseButtonClicked(object sender, EventArgs e)
-        {try { 
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsPickPhotoSupported)
+        {
+            try
             {
-                await DisplayAlert("OOps", ":( pic photo not supported.", "OK");
-                return;
-            }
-            string pathpic = App.getPicturePath;
-            var file = await CrossMedia.Current.PickPhotoAsync();
+                await CrossMedia.Current.Initialize();
 
-            if (file == null)
-                return;
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("OOps", ":( pic photo not supported.", "OK");
+                    return;
+                }
+                string pathpic = App.getPicturePath;
+                var file = await CrossMedia.Current.PickPhotoAsync();
 
-            // await DisplayAlert("File Location", file.Path, "OK");
+                if (file == null)
+                    return;
 
-            entryImage.Text = file.Path;
-            MainImage.Source = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+                // await DisplayAlert("File Location", file.Path, "OK");
+
+                entryImage.Text = file.Path;
+                MainImage.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
 
                 //or:
                 //image.Source = ImageSource.FromFile(file.Path);
@@ -309,14 +345,14 @@ namespace MyWorld.Screens
         }
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            try { 
-
-            entryDate.Text = Convert.ToString(e.NewDate);
+            try
+            {
+                DOBValImage.IsVisible = false;
+                entryDate.Text = Convert.ToString(e.NewDate);
             }
             catch { }
 
         }
-
         protected override bool OnBackButtonPressed()
         {
             try
@@ -336,6 +372,22 @@ namespace MyWorld.Screens
 
             }
             catch { }
+        }
+
+        private void entryFirstName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FNameValImage.IsVisible = false;
+
+        }
+
+        private void entryEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            EmailValImage.IsVisible = false;
+        }      
+
+        private void entryAddress_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            AddressValImage.IsVisible = false;
         }
     }
 }

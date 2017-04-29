@@ -38,7 +38,7 @@ namespace MyWorld.Screens
 
                 var tapRouteImage = new TapGestureRecognizer();
                 tapRouteImage.Tapped += tapRouteImage_Tapped;
-                imageRoute.GestureRecognizers.Add(tapRouteImage);
+                imageNavigate.GestureRecognizers.Add(tapRouteImage);
                 
                 CrossVibrate.Current.Vibration(200);
 

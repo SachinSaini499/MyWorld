@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MyWorld.Behaviours"             
              x:Class="MyWorld.Screens.MemberPage"
-             Title="Member" >
+             Title="Member"           
+            
+             >
 
     <ScrollView>
 
@@ -36,7 +38,7 @@
 
 
 
-            <Entry Text="{Binding FirstName}" HeightRequest="20"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryFirstName" Placeholder="First Name*" TextColor="Green"  />
+            <Entry Text="{Binding FirstName}" HeightRequest="20" TextChanged="entryFirstName_TextChanged"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryFirstName" Placeholder="First Name*" TextColor="Green"  />
             <Switch x:Name="switch1" IsVisible="False">
                 <Switch.Triggers>
                     <DataTrigger TargetType="Switch" Binding="{Binding Source={x:Reference entryFirstName}, Path=Text.Length}" Value="0">
@@ -44,7 +46,7 @@
                     </DataTrigger>
                 </Switch.Triggers>
             </Switch>
-            <Image x:Name="FNameValImage"   HeightRequest="25" Grid.Row="0" Grid.Column="3" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
+            <Image x:Name="FNameValImage"   HeightRequest="25" Grid.Row="0" Grid.Column="4" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
             <Entry Text="{Binding LastName}" HeightRequest="20" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryLastName" Placeholder="Last Name" TextColor="Green" />
             <Entry Text="{Binding Age}" HeightRequest="20" Grid.Row="2" Grid.Column="0" x:Name="entryAge" Grid.ColumnSpan="5" Placeholder="Age" Keyboard="Keyboard.Numeric" TextColor="Green" >
                 <Entry.Behaviors>
@@ -66,7 +68,8 @@
             <Label x:Name="lblDate" FontSize="Medium"  VerticalOptions="Center" HorizontalOptions="Center"  HeightRequest="20" Text="DOB" Grid.Row="4" Grid.Column="0"></Label>
             <DatePicker x:Name="DatePicker"  DateSelected="DatePicker_DateSelected"  HeightRequest="20" TextColor="Green" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" HorizontalOptions="Start"  ></DatePicker>
             <Entry Text="{Binding DOB}"  x:Name="entryDate" IsVisible="false" TextColor="Green" />
-            <Entry x:Name="entryEmail" Text="{Binding Email}" HeightRequest="20" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5"  Placeholder="Email*" TextColor="Green">
+            <Image x:Name="DOBValImage" HeightRequest="25" Grid.Row="4" Grid.Column="4" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"></Image>
+            <Entry x:Name="entryEmail" Text="{Binding Email}" TextChanged="entryEmail_TextChanged" HeightRequest="20" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5"  Placeholder="Email*" TextColor="Green">
                 <Entry.Behaviors>
                     <local:EmailValidatorBehavior x:Name="validEmail" />
                 </Entry.Behaviors>
@@ -79,8 +82,9 @@
                 </Switch.Triggers>
             </Switch>
          
-            <Image x:Name="EmailValImage"   HeightRequest="25" Grid.Row="5" Grid.Column="3" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
-            <Entry Text="{Binding Address}" HeightRequest="20" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryAddress" Placeholder="Address" TextColor="Green" />
+            <Image x:Name="EmailValImage"   HeightRequest="25" Grid.Row="5" Grid.Column="4" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
+            <Entry Text="{Binding Address}" HeightRequest="20"  TextChanged="entryAddress_TextChanged" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryAddress" Placeholder="Address" TextColor="Green" />
+            <Image x:Name="AddressValImage" HeightRequest="25" Grid.Row="6" Grid.Column="4" HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"></Image>
             <Entry Text="{Binding PhoneNumber}" HeightRequest="20" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" x:Name="entryPhoneNumber" Placeholder="Phone Number*" Keyboard="Keyboard.Numeric" TextColor="Green" >
                 <Entry.Behaviors>
                     <local:MaxLengthValidatorBehavior MaxLength="10"/>
@@ -94,7 +98,7 @@
                     </DataTrigger>
                 </Switch.Triggers>
             </Switch>
-            <Image x:Name="PhoneNumberValImage"   HeightRequest="25" Grid.Row="7" Grid.Column="3"  HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
+            <Image x:Name="PhoneNumberValImage"   HeightRequest="25" Grid.Row="7" Grid.Column="4"  HorizontalOptions="End" IsVisible="false"  Source="Wrong.png" VerticalOptions="Fill"/>
             <Entry Text="{Binding Image}" Grid.Row="8" Grid.Column="0" x:Name="entryImage" Grid.ColumnSpan="2" IsVisible="false" TextColor="Green" />
 
             <Image x:Name="MainImage" Grid.Row="9" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
@@ -115,9 +119,9 @@
         <Button x:Name="btnPicMembr" WidthRequest="40"  HeightRequest="40" Grid.Row="0" Grid.Column="1" BackgroundColor="Red" TextColor="White" Text="Upload" Clicked="PhotoButtonClicked"></Button>
         <Button x:Name="btnPicBrows" WidthRequest="30"  HeightRequest="40" Grid.Row="1" Grid.Column="1" BackgroundColor="Red" TextColor="White"    Text="Browse" Clicked="BrowseButtonClicked"></Button>
       </Grid>-->
-            <Entry x:Name="entryOTP" Placeholder="Enter OTP"  Keyboard="Keyboard.Numeric"  TextColor="Green" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="False"></Entry>       
+            <Entry x:Name="entryOTP" Placeholder="Enter OTP"  Keyboard="Keyboard.Numeric"  TextColor="Green" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="False"></Entry>
 
-            <Button x:Name="btnAddMembr" HorizontalOptions="Start" VerticalOptions="End" IsEnabled="{Binding myBool}" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="2" TextColor="Black" 
+            <Button x:Name="btnAddMembr" HorizontalOptions="Start" BackgroundColor="#27569B"  VerticalOptions="End" IsEnabled="{Binding myBool}" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="2" TextColor="Black" 
               Text="Get OTP" Clicked="AddButtonClicked" >
                 <!--<Button.Triggers>
                     <MultiTrigger TargetType="Button">

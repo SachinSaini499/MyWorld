@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<resources>
 
-  <style name="MainTheme" parent="MainTheme.Base">
+
+<resources>
+  <style name="MainTheme" parent="MainTheme.Base">  
   </style>
   <!-- Base theme applied no matter what API -->
   <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -18,7 +19,7 @@
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
     <item name="colorAccent">#FF4081</item>
-    <!--<item name="windowBackground">#8F8F85</item>-->
+   
     
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->

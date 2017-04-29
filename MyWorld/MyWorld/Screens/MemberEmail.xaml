@@ -7,7 +7,7 @@
         <ScrollView>
         <StackLayout>
             <StackLayout Orientation="Horizontal" Margin="2" MinimumWidthRequest="250" >
-            <Label x:Name="lblTo"  Text="To "></Label>
+                <Label x:Name="lblTo" Style="{DynamicResource labelStyle}"   Text="To "></Label>
             <Editor x:Name="editorTo" WidthRequest="320" TextColor="Green"></Editor>
             </StackLayout>
             <StackLayout Orientation="Horizontal">

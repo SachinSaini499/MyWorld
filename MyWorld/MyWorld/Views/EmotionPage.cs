@@ -12,7 +12,7 @@ namespace CognitiveServices.Views
 
             BindingContext = new ComputerVisionViewModel
             {
-                ImageUrl = "https://pbs.twimg.com/media/CeFShQLW4AAE6po.jpg"
+                ImageUrl = ""
                 //"https://pbs.twimg.com/media/CnVGRLqWAAAnf1q.jpg:large"
                 //"https://pbs.twimg.com/media/CnQSbt0XgAAjREq.jpg"
                 //"https://scontent-lhr3-1.xx.fbcdn.net/t31.0-8/13416828_1110682725621456_2065685633287031902_o.jpg"

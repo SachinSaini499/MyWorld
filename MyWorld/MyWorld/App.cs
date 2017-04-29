@@ -19,16 +19,17 @@ namespace MyWorld
         {           
             var content = new ContentPage
             {
-                Title = "MyWorld",                           
+                Title = "myWORLD",                           
             };
             // MainPage = new NavigationPage(new MemberMap());
 
             MainPage = new NavigationPage(new MasterDetailMenuPage())
             {
                 BarBackgroundColor = Color.Green,//Color.FromHex("#ff5300"),
-                BarTextColor = Color.White,
-                
+                BarTextColor =Color.FromHex("#8F8F85"),// Color.White,
+                Icon= "myworld2.jpg",
 
+           
             };
         }
         public static MemberDatabase Database
