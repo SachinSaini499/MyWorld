@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="com.myworld.Droid" android:versionCode="1" android:versionName="Beta">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.CAMERA" />
@@ -44,12 +44,10 @@
 	<uses-permission android:name="android.permission.FLASHLIGHT" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<application android:label="MyWorld.Droid">
-    <meta-data android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDYQ5L3bP40qBKH8_gqSzOMg6adgVM3waY" />
-    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23" />
-  
-<!--<meta-data android:name="com.google.android.gep.API_KEY"
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDYQ5L3bP40qBKH8_gqSzOMg6adgVM3waY" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+		<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23" />
+		<!--<meta-data android:name="com.google.android.gep.API_KEY"
            android:value="AIzaSyDnBSiIMvBhdexbkMTM6hMsyiEHmz5GORA"></meta-data>-->
-  </application>
+	</application>
 </manifest>

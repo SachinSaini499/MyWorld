@@ -1,4 +1,6 @@
-﻿using MyWorld.MemberHelper;
+﻿using AzurePushNotification.Plugin;
+using AzurePushNotification.Plugin.Abstractions;
+using MyWorld.MemberHelper;
 using MyWorld.Screens;
 using MyWorld.Screens.Mapp;
 using System;
@@ -17,20 +19,21 @@ namespace MyWorld
 
         public App()
         {           
+
             var content = new ContentPage
             {
-                Title = "myWORLD",                           
+                Title = "myWORLD",
             };
             // MainPage = new NavigationPage(new MemberMap());
 
             MainPage = new NavigationPage(new MasterDetailMenuPage())
             {
                 BarBackgroundColor = Color.Green,//Color.FromHex("#ff5300"),
-                BarTextColor =Color.FromHex("#8F8F85"),// Color.White,
-                Icon= "myworld2.jpg",
-
-           
+                BarTextColor = Color.FromHex("#8F8F85"),// Color.White,
+                Icon = "myworld2.jpg",
             };
+
+            
         }
         public static MemberDatabase Database
         {

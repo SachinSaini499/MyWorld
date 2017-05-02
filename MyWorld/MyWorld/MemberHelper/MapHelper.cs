@@ -55,6 +55,10 @@ namespace MyWorld.MemberHelper
                         add += address1[i] + " ";
                     if (i == 2)
                     {
+                        add += address1[i] + " ";                     
+                    }
+                    if (i == 3)
+                    {
                         add += address1[i] + " ";
                         break;
                     }

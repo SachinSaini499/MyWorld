@@ -229,6 +229,7 @@ namespace MyWorld.Screens
                         }
                         else { member.Status = pickerBehavior.Items[pickerBehavior.SelectedIndex]; }
                         await App.Database.SaveMember(member);
+                        new PushNotificationHelper().getNotification();
                         await Navigation.PopAsync();
                     }
                     else

@@ -10,6 +10,7 @@ using Android.Content;
 using ZXing.Mobile;
 using ZXing.Net.Mobile;
 using Xamarin.Forms;
+using AzurePushNotification.Plugin;
 
 namespace MyWorld.Droid
 {
@@ -20,14 +21,12 @@ namespace MyWorld.Droid
         protected override async void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
-            
+            ToolbarResource = Resource.Layout.Toolbar;            
             base.OnCreate(bundle);
-
             // Initilise media
             await CrossMedia.Current.Initialize();
-
-         
+            AzurePushNotificationImplementation.MainActivityInstance = this;
+            AzurePushNotificationImplementation.NotificationIconDrawable = Android.Resource.Drawable.StatNotifyMore;
             global::Xamarin.Forms.Forms.Init(this, bundle);
             global::Xamarin.FormsMaps.Init(this, bundle);
             LoadApplication(new App());

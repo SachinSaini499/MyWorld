@@ -42,7 +42,7 @@ namespace MyWorld.Screens.Mapp
 
                 entrySource.Text =await new MapHelper().getAddressFromCordinate(Latitude, Longitude);
                 //entryDestination.Text = await new MapHelper().getAddressFromCordinate(Latitude, Longitude);
-                getMap(Latitude, Longitude);
+                getMap(Latitude, Longitude, entrySource.Text);
                 stack = new StackLayout { Spacing = 0 };
                 stack.Children.Add(entrySource);
               //  stack.Children.Add(entryDestination);
@@ -104,7 +104,7 @@ namespace MyWorld.Screens.Mapp
             catch { return base.OnBackButtonPressed(); }
 
         }
-        void getMap(double _sourceLatitude, double _sourceLongitude)
+        void getMap(double _sourceLatitude, double _sourceLongitude,string _yourLocation)
         {
 
 
@@ -126,7 +126,7 @@ namespace MyWorld.Screens.Mapp
             {
                 Type = PinType.Place,
                 Position = possition1,
-                Label = "Your Location",
+                Label = _yourLocation,
                 Address = "X=" + _sourceLatitude + ",y=" + _sourceLongitude,
 
             };
