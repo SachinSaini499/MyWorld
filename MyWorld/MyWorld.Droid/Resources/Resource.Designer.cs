@@ -2331,26 +2331,8 @@ namespace MyWorld.Droid
 			// aapt resource value: 0x7f02005b
 			public const int avd_hide_password = 2130837595;
 			
-			// aapt resource value: 0x7f02014e
-			public const int avd_hide_password_1 = 2130837838;
-			
-			// aapt resource value: 0x7f02014f
-			public const int avd_hide_password_2 = 2130837839;
-			
-			// aapt resource value: 0x7f020150
-			public const int avd_hide_password_3 = 2130837840;
-			
 			// aapt resource value: 0x7f02005c
 			public const int avd_show_password = 2130837596;
-			
-			// aapt resource value: 0x7f020151
-			public const int avd_show_password_1 = 2130837841;
-			
-			// aapt resource value: 0x7f020152
-			public const int avd_show_password_2 = 2130837842;
-			
-			// aapt resource value: 0x7f020153
-			public const int avd_show_password_3 = 2130837843;
 			
 			// aapt resource value: 0x7f02005d
 			public const int BrowsImage = 2130837597;
