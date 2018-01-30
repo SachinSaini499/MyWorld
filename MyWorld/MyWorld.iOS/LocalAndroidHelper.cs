@@ -1,10 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyWorld.iOS;
+using MyWorld.MemberHelper;
 
-namespace App7.iOS
+namespace MyWorld.iOS
 {
-    class LocalAndroidHelper
+    class LocalAndroidHelper :IMemberHelper
     {
+         public string GetLocalFileNamePath(string fileName)
+        { 
+            string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string libFolder = Path.Combine(docFolder, "..", "Library", "Databases");
+
+            if (!Directory.Exists(libFolder))
+            {
+                Directory.CreateDirectory(libFolder);
+            }
+
+            return Path.Combine(libFolder, filename);
+        
+        }
+    
     }
 }
