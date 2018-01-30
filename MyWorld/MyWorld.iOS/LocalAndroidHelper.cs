@@ -4,6 +4,7 @@ using System.Text;
 using MyWorld.iOS;
 using MyWorld.MemberHelper;
 
+[assembly: Xamarin.Forms.Dependency (typeof (MyWorld.Droid.LocalAndroidHelper))]
 namespace MyWorld.iOS
 {
     class LocalAndroidHelper :IMemberHelper
